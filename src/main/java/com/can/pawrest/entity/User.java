@@ -2,6 +2,7 @@ package com.can.pawrest.entity;
 
 import com.can.pawrest.role.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
@@ -18,19 +19,26 @@ public class User {
 
     public User() {}
 
-    public User(boolean is_deleted, String created_at) {
+    public User(boolean isDeleted, String createdAt) {
         this.id = UUID.randomUUID().toString();
-        this.is_deleted = false;
-        this.created_at = String.valueOf(LocalDateTime.now());
+        this.isDeleted = false;
+        this.createdAt = String.valueOf(LocalDateTime.now());
     }
 
     @Id
     private String id;
+
+    @Column(name = "user_id")
     private String userId;
+
     private String username;
     private String password;
     private Role role;
-    private String created_at;
+
+    @Column(name = "create_at")
+    private String createdAt;
     private String phone_number;
-    private boolean is_deleted;
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted;
 }
