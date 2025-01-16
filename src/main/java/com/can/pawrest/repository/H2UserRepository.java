@@ -1,18 +1,10 @@
 package com.can.pawrest.repository;
 
 import com.can.pawrest.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public class H2UserRepository implements UserRepository {
+public interface H2UserRepository extends JpaRepository<User, Integer> {
 
-    @Override
-    public void save(User user) {
-
-    }
-
-    @Override
-    public Optional<User> findByUsername(String username) {
-        return Optional.empty();
-    }
 }
