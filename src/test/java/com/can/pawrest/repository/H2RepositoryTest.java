@@ -11,10 +11,10 @@ import java.util.List;
 @SpringBootTest
 public class H2RepositoryTest {
 
-    private final H2UserRepository repository;
+    private final UserRepository repository;
 
     @Autowired
-    public H2RepositoryTest(H2UserRepository repository) {
+    public H2RepositoryTest(UserRepository repository) {
         this.repository = repository;
     }
 
