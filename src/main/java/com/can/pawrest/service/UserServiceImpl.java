@@ -1,16 +1,15 @@
 package com.can.pawrest.service;
 
 import com.can.pawrest.entity.User;
-import com.can.pawrest.exception.DuplicateUserInfoException;
-import com.can.pawrest.repository.JpaUserRepository;
+import com.can.pawrest.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final JpaUserRepository userRepository;
+    private final UserRepository userRepository;
 
-    public UserServiceImpl(JpaUserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
