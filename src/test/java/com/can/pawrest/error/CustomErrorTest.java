@@ -10,8 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class CustomErrorTest {
 
-    private static final Logger log = LoggerFactory.getLogger(CustomErrorTest.class);
-
     @Test
     public void test() {
         throw new UserException(ErrorCode.USER_NOT_FOUND);

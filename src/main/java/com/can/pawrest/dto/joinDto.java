@@ -1,6 +1,7 @@
 package com.can.pawrest.dto;
 
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ public class joinDto {
 
     @NotBlank(message = "아이디는 필수 입력값입니다.")
 //    @Pattern(regexp = "^[a-z0-9]{4,20}$", message = "아이디는 영문 소문자와 숫자 4~12자리여야 합니다.")
-    private String user_id;
+    private String userId;
 
     @NotBlank(message = "닉네임은 필수 입력값입니다.")
 //    @Pattern(regexp = "^[가-힣a-zA-Z0-9]{2,10}$" , message = "닉네임은 특수문자를 포함하지 않은 2~10자리여야 합니다.")
@@ -29,7 +30,7 @@ public class joinDto {
 
 
     @NotBlank(message = "비밀번호 재입력은 필수 입력값입니다.")
-    private String confirm_password;
+    private String confirmPassword;
 
     @NotBlank(message = "전화번호는 필수 입력값입니다.")
     private String phoneNumber;
