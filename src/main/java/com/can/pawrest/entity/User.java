@@ -13,11 +13,10 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "\"users\"")
+@Table(name = "users")
 public class User {
 
     public User() {
-//        this.id = UUID.randomUUID().toString();
         isDeleted = false;
         createdAt = LocalDateTime.now();
     }
@@ -31,9 +30,11 @@ public class User {
 
     private String username;
     private String password;
-    private Role role;
 
-    @Column(name = "create_at")
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
     private String phone_number;
 
