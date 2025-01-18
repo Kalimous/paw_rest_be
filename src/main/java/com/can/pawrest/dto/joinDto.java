@@ -2,6 +2,7 @@ package com.can.pawrest.dto;
 
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,6 +35,12 @@ public class joinDto {
 
     @NotBlank(message = "전화번호는 필수 입력값입니다.")
     private String phoneNumber;
+
+    @AssertTrue(message = "비밀번호와 비밀번호 재입력이 일치해야 합니다.")
+    public boolean isPasswordMatch() {
+        return password.equals(confirmPassword);
+    }
+
 
 }
 

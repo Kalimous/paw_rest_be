@@ -12,21 +12,23 @@ public class ErrorResponse {
 
     private String message;
     private String code;
-    private List<String> errors;
+    private List<String> details;
 
     ErrorResponse(final ErrorCode code) {
-        this.message = code.getMessage();
         this.code = code.getCode();
+        this.message = code.getMessage();
     }
 
     public ErrorResponse(final ErrorCode code, final String message) {
-        this.message = message;
         this.code = code.getCode();
+        this.message = message;
     }
 
-    public ErrorResponse(String message, List<String> errors) {
-        this.message = message;
-        this.errors = errors;
+    public ErrorResponse(final ErrorCode code, final List<String> details) {
+        this.code = code.getCode();
+        this.message = code.getMessage();
+        this.details = details;
     }
+
 
 }

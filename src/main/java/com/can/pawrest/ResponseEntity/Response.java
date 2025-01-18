@@ -31,12 +31,18 @@ public class Response {
     }
 
     // 실패 응답
-    public static HashMap<String, Object> error(String message, List<String> errors) {
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("message", message);
-        map.put("errors", errors);
-        return map;
-    }
+//    public static HashMap<String, Object> error(String message, List<String> errors) {
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("message", message);
+//        map.put("errors", errors);
+//        return map;
+//    }
+//
+//    public static HashMap<String, Object> error(String message) {
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("message", message);
+//        return map;
+//    }
 
 
 }

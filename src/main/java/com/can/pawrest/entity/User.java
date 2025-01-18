@@ -12,6 +12,8 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "users")
+@Builder
+@AllArgsConstructor
 public class User {
 
     public User() {
@@ -34,8 +36,19 @@ public class User {
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "is_deleted")
     private boolean isDeleted;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.role == null) {
+            this.role = Role.USER;
+        }
+
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
+    }
 }

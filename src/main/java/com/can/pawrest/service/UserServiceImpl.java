@@ -28,6 +28,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> findByUserId(String userId) {
-        return Optional.empty();
+        return userRepository.findByUserId(userId);
     }
 }
