@@ -4,17 +4,14 @@ import com.can.pawrest.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
-
-import java.util.List;
 
 @SpringBootTest
-public class H2RepositoryTest {
+public class UserRepositoryTest {
 
     private final UserRepository repository;
 
     @Autowired
-    public H2RepositoryTest(UserRepository repository) {
+    public UserRepositoryTest(UserRepository repository) {
         this.repository = repository;
     }
 

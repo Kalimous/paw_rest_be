@@ -3,9 +3,7 @@ package com.can.pawrest.entity;
 import com.can.pawrest.role.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -13,11 +11,12 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "\"users\"")
+@Table(name = "users")
+@Builder
+@AllArgsConstructor
 public class User {
 
     public User() {
-//        this.id = UUID.randomUUID().toString();
         isDeleted = false;
         createdAt = LocalDateTime.now();
     }
@@ -31,12 +30,25 @@ public class User {
 
     private String username;
     private String password;
-    private Role role;
 
-    @Column(name = "create_at")
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
+
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "is_deleted")
     private boolean isDeleted;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.role == null) {
+            this.role = Role.USER;
+        }
+
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
+    }
 }

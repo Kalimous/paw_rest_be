@@ -5,8 +5,11 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 public enum ErrorCode{
-    USER_ALREADY_EXISTS(HttpStatus.BAD_REQUEST, "U1", "유저가 이미 존재합니다"),
-    USER_NOT_FOUND(HttpStatus.NOT_FOUND, "U2", "유저를 찾을 수 없습니다");
+    USERNAME_ALREADY_EXISTS(HttpStatus.CONFLICT, "U1", "유저이름이 이미 존재합니다."),
+    USER_ID_ALREADY_EXISTS(HttpStatus.CONFLICT, "U2", "유저 아이디가 이미 존재합니다."),
+    USER_NOT_FOUND(HttpStatus.NOT_FOUND, "U3", "유저를 찾을 수 없습니다."),
+
+    JOIN_VALIDATION_ERROR(HttpStatus.BAD_REQUEST, "U4", "로그인 형식에 맞지않습니다.");
 
     private final HttpStatus status;
     private final String message;
