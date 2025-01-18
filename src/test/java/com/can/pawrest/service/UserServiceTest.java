@@ -32,8 +32,10 @@ public class UserServiceTest {
 
     @Test
     public void findByUsernameTest() {
-        Optional<User> user = userService.findByUsername("test");
+        Optional<User> user = userService.findByUsername("username");
 
         Assertions.assertThat(user.isPresent()).isTrue();
-    }
+
+        Assertions.assertThat(user.get().getRole()).isEqualTo(Role.USER);
+    }    
 }
